@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useGlobalContext } from "../../Context";
 import { darazProducts } from "../../ul-data";
 import roundNumber from "../../shared/roundNumber";
+import { getImageUrl } from "../../Helpers/getImageUrl";
 
 const JustForYou = () => {
   const [currentProducts, setCurrentProducts] = useState([]);
@@ -123,7 +124,7 @@ const JustForYou = () => {
               >
                 <img
                   className="fs-product-image"
-                  src={item?.images[0]?.img}
+                  src={getImageUrl(item?.images[0]?.org)}
                   alt="daraz-product"
                 />
                 <div className="fs-product-info">

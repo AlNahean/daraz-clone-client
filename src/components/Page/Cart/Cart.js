@@ -5,6 +5,7 @@ import HeaderNav from "../../Header Nav/HeaderNav";
 
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 import roundNumber from "../../shared/roundNumber";
+import { getImageUrl } from "../../Helpers/getImageUrl";
 const Cart = () => {
   const [isLoading, setIsLoading] = useState(false);
   const { cartItems, setCartItems } = useGlobalContext();
@@ -88,7 +89,7 @@ const Cart = () => {
                           to={`/products/${item._id}`}
                         >
                           <img
-                            src={item.images[0].img}
+                            src={getImageUrl(item.images[0].org)}
                             alt="sdsdsd"
                             className="cart-product-image"
                           />

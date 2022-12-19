@@ -6,6 +6,7 @@ import { MdOutlineCancelPresentation } from "react-icons/md";
 import { useNavigate, useParams } from "react-router-dom";
 
 import { useGlobalContext } from "../../Context";
+import { getImageUrl } from "../../Helpers/getImageUrl";
 
 const UploadProduct = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -308,7 +309,7 @@ const UploadProduct = () => {
                 {productInfoUpload.images.map((item, index) => {
                   return (
                     <div className="dr-image-input-item" key={index}>
-                      <img src={item?.img} alt={index} className="full-size" />
+                      <img src={getImageUrl(item?.org)} alt={index} className="full-size" />
                       {/* <div
                       className="cross-image"
                       onClick={(e) => {

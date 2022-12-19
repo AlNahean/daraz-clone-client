@@ -46,7 +46,7 @@ userInfoCheck();
 //baseURL: "http://localhost:4000/",
 //http://192.168.31.67:4000/
 const API = axios.create({
-  baseURL: "https://daraz-clone-v1.herokuapp.com/",
+  baseURL: "https://daraz-clone.onrender.com/",
 });
 // const API = axios.create({
 //   baseURL: "http://localhost:4000/",

@@ -5,6 +5,7 @@ import Footer from "../Home/Footer";
 import HeaderNav from "../../Header Nav/HeaderNav";
 import { useGlobalContext } from "../../Context";
 import roundNumber from "../../shared/roundNumber";
+import { getImageUrl } from "../../Helpers/getImageUrl";
 
 const Search = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -119,7 +120,7 @@ const Search = () => {
                         >
                           <img
                             className="fs-product-image"
-                            src={`${item.images[0]?.img}`}
+                            src={`${getImageUrl(item.images[0]?.org)}`}
                             alt="daraz-product"
                           />
                           <div className="fs-product-info">
@@ -175,7 +176,7 @@ const Search = () => {
                   >
                     <img
                       className="fs-product-image"
-                      src={`${item.images[0]?.img}`}
+                      src={`${getImageUrl(item.images[0]?.org)}`}
                       alt="daraz-product"
                       style={{ width: "180px" }}
                     />

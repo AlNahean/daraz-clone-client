@@ -6,6 +6,7 @@ import roundNumber from "../../shared/roundNumber";
 import { useGlobalContext } from "../../Context";
 import { darazProducts } from "../../ul-data";
 import CountDown from "./CountDown";
+import { getImageUrl } from "../../Helpers/getImageUrl";
 
 const FlashSale = () => {
   const [currentProducts, setCurrentProducts] = useState([]);
@@ -21,6 +22,7 @@ const FlashSale = () => {
   useEffect(() => {
     getData();
   }, []);
+  
   return (
     <div className="flash-sale-container ">
       <div className="flash-sale-header-name">Flash Sale</div>
@@ -48,7 +50,7 @@ const FlashSale = () => {
               >
                 <img
                   className="fs-product-image"
-                  src={item?.images[0]?.img}
+                  src={getImageUrl(item?.images[0]?.org)}
                   alt="daraz-product"
                   style={{ width: "180px" }}
                 />

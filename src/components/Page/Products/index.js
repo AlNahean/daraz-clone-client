@@ -7,6 +7,7 @@ import { useGlobalContext } from "../../Context";
 import HeaderNav from "../../Header Nav/HeaderNav";
 import { darazProducts } from "../../ul-data";
 import roundNumber from "../../shared/roundNumber";
+import { getImageUrl } from "../../Helpers/getImageUrl";
 
 const Products = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -18,8 +19,10 @@ const Products = () => {
   const [productQuantity, setProductQuantity] = useState(1);
   const [showCaseImgId, setShowCaseImgId] = useState(0);
   const [showCaseImage, setShowCaseImage] = useState(
-    currentProduct?.images[showCaseImgId]?.img
+    currentProduct?.images[showCaseImgId]?.org
   );
+
+  
 
   const { name } = useParams();
   const navigate = useNavigate();
@@ -36,7 +39,8 @@ const Products = () => {
   }, []);
 
   useEffect(() => {
-    setShowCaseImage(currentProduct?.images[showCaseImgId]?.img);
+    // console.log(currentProduct?.images[showCaseImgId]);
+    setShowCaseImage(currentProduct?.images[showCaseImgId]?.org);
   }, [showCaseImgId, currentProduct]);
 
   const setQuantity = (e) => {
@@ -51,7 +55,7 @@ const Products = () => {
   };
   const setTheShowCaseImage = (id) => {
     setShowCaseImgId(id);
-    setShowCaseImage(currentProduct.images[showCaseImgId].img);
+    setShowCaseImage(currentProduct.images[showCaseImgId].org);
   };
 
   const addToCart = () => {
@@ -104,7 +108,7 @@ const Products = () => {
                 <div className="product-image">
                   <img
                     style={{ maxHeight: "50vh" }}
-                    src={`${showCaseImage}`}
+                    src={`${getImageUrl(showCaseImage)}`}
                     alt="ProductImage"
                     className="full-size"
                   />
@@ -117,7 +121,7 @@ const Products = () => {
                         key={index}
                       >
                         <img
-                          src={`${item.img}`}
+                          src={`${getImageUrl(item.org)}`}
                           alt="moreimage"
                           className={`indi-product-image ${
                             showCaseImgId === index && "indi-product-border"
